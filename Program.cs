@@ -2,6 +2,8 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using static Dapper.SimpleCRUD;
 using System.Data;
+using Sample.Services.IServices;
+using Sample.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,9 @@ builder.Services.AddScoped<IDbConnection>((sp) => new SqlConnection(connectionSt
 
 // Initialize Dapper.SimpleCRUD to use SQL Server dialect
 SimpleCRUD.SetDialect(Dialect.SQLServer);
+
+//register the service
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 
 var app = builder.Build();

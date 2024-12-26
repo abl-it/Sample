@@ -18,7 +18,7 @@ namespace Sample.Services
 
         public async Task<int> DeleteAsync(int id)
         {
-            var employee = await _db.GetAsync<Employee>(id);
+            var employee = await _db.GetAsync<Employees>(id);
             if (employee == null)
                 return 0;
 
@@ -26,19 +26,19 @@ namespace Sample.Services
             return affectedRows;
         }
 
-        public async Task<IEnumerable<Employee>> GetAllAsync()
+        public async Task<IEnumerable<Employees>> GetAllAsync()
         {
-            var employees = await _db.GetListAsync<Employee>();
+            var employees = await _db.GetListAsync<Employees>();
             return employees;
         }
 
-        public async Task<Employee> GetByIdAsync(int id)
+        public async Task<Employees> GetByIdAsync(int id)
         {
-            var employee = await _db.GetAsync<Employee>(id);
+            var employee = await _db.GetAsync<Employees>(id);
             return employee;
         }
 
-        public async Task<int> InsertAsync(Employee employee)
+        public async Task<int> InsertAsync(Employees employee)
         {
             var id = await _db.InsertAsync(employee);
             if (id == null)
@@ -48,7 +48,7 @@ namespace Sample.Services
             return (int)id;
         }
 
-        public async Task<int> UpdateAsync(Employee employee)
+        public async Task<int> UpdateAsync(Employees employee)
         {
             var affectedRows = await _db.UpdateAsync(employee);
             return affectedRows;
