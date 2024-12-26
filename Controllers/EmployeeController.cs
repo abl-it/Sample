@@ -30,5 +30,15 @@ namespace Sample.Controllers
             return View(employee);
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            var employee = await _employeeService.GetByIdAsync(id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
     }
 }

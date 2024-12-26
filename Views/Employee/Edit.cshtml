@@ -1,0 +1,113 @@
+﻿@model Employees
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Employees</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+</nav>
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form asp-action="Edit" method="post" class="mt-4">
+    <input type="hidden" asp-for="EmployeeID" />
+
+    <div class="mb-3">
+        <label asp-for="EmployeeID" class="form-label">Employee ID</label>
+        <input asp-for="EmployeeID" class="form-control" readonly />
+        <span asp-validation-for="EmployeeID" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label">First Name</label>
+        <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label">Last Name</label>
+        <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" placeholder="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TitleOfCourtesy" class="form-label">TitleOfCourtesy</label>
+        <select asp-for="TitleOfCourtesy" class="form-select">
+            <option value="">-- Select Publisher --</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Dr.">Dr.</option>
+        </select>
+        <span asp-validation-for="TitleOfCourtesy" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="BirthDate" class="form-label">Birth Date</label>
+        <input asp-for="BirthDate" class="form-control" type="date" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="HireDate" class="form-label">Hire Date</label>
+        <input asp-for="HireDate" class="form-control" type="date" />
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label">Address</label>
+        <input asp-for="Address" class="form-control" placeholder="Enter address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="City" class="form-label">City</label>
+        <input asp-for="City" class="form-control" placeholder="Enter city" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Region" class="form-label">Region</label>
+        <input asp-for="Region" class="form-control" placeholder="Enter region" />
+        <span asp-validation-for="Region" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PostalCode" class="form-label">Postal Code</label>
+        <input asp-for="PostalCode" class="form-control" placeholder="Enter postal code" />
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Country" class="form-label">Country</label>
+        <input asp-for="Country" class="form-control" placeholder="Enter country" />
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="HomePhone" class="form-label">Home Phone</label>
+        <input asp-for="HomePhone" class="form-control" placeholder="Enter home phone" />
+        <span asp-validation-for="HomePhone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Extension" class="form-label">Extension</label>
+        <input asp-for="Extension" class="form-control" placeholder="Enter extension" />
+        <span asp-validation-for="Extension" class="text-danger"></span>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
