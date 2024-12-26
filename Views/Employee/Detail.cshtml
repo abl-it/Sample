@@ -1,0 +1,85 @@
+﻿@model Employees
+
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Employees</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Employee Information</h5>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.EmployeeID" class="btn btn-primary btn-sm me-2" aria-label="Edit Employee">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary btn-sm" aria-label="Back to List">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+            <button onclick="window.print()" class="btn btn-info btn-sm ms-2" aria-label="Print Details">
+                <i class="bi bi-printer"></i> Print
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Employee ID</dt>
+            <dd class="col-sm-9">@Model.EmployeeID</dd>
+
+            <dt class="col-sm-3">First Name</dt>
+            <dd class="col-sm-9">@Model.FirstName</dd>
+
+            <dt class="col-sm-3">Last Name</dt>
+            <dd class="col-sm-9">@Model.LastName</dd>
+
+            <dt class="col-sm-3">Title</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">TitleOfCourtesy</dt>
+            <dd class="col-sm-9">@Model.TitleOfCourtesy</dd>
+
+            <dt class="col-sm-3">Birthate</dt>
+            <dd class="col-sm-9">@Model.BirthDate.ToString("MMMM dd, yyyy")</dd>
+            
+            <dt class="col-sm-3">Hire Date</dt>
+            <dd class="col-sm-9">@Model.HireDate.ToString("MMMM dd, yyyy")</dd>
+            
+
+
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+
+            <dt class="col-sm-3">City</dt>
+            <dd class="col-sm-9">@Model.City</dd>
+
+            <dt class="col-sm-3">Region</dt>
+            <dd class="col-sm-9">@Model.Region</dd>
+
+            <dt class="col-sm-3">PostalCode</dt>
+            <dd class="col-sm-9">@Model.PostalCode</dd>
+
+            <dt class="col-sm-3">Country</dt>
+            <dd class="col-sm-9">@Model.Country</dd>
+
+            <dt class="col-sm-3">HomePhone</dt>
+            <dd class="col-sm-9">@Model.HomePhone</dd>
+
+            <dt class="col-sm-3">Extension</dt>
+            <dd class="col-sm-9">@Model.Extension</dd>
+        </dl>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

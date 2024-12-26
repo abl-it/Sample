@@ -19,7 +19,16 @@ namespace Sample.Controllers
             return View(employees);
         }
 
-
+        // GET: Users/Details/5
+        public async Task<IActionResult> Detail(int id)
+        {
+            var employee = await _employeeService.GetByIdAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
 
     }
 }

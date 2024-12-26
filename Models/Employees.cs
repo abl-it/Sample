@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Metrics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Metrics;
 using System.Net;
 using System.Xml.Linq;
 using static Azure.Core.HttpHeader;
@@ -7,6 +8,7 @@ namespace Sample.Models
 {
     public class Employees
     {
+        [Key]
         public int EmployeeID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
