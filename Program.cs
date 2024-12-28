@@ -4,6 +4,7 @@ using static Dapper.SimpleCRUD;
 using System.Data;
 using Sample.Services.IServices;
 using Sample.Services;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ SimpleCRUD.SetDialect(Dialect.SQLServer);
 
 //register the service
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
 
 
 var app = builder.Build();

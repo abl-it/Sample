@@ -40,12 +40,21 @@ namespace Sample.Services
 
         public async Task<int> InsertAsync(Employees employee)
         {
-            var id = await _db.InsertAsync(employee);
-            if (id == null)
+            try
             {
-                throw new InvalidOperationException("Failed to retrieve the inserted Employee ID.");
+                var id = await _db.InsertAsync(employee);
+                if (id == null)
+                {
+                    throw new InvalidOperationException("Failed to retrieve the inserted Employee ID.");
+                }
+                return (int)id;
             }
-            return (int)id;
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
 
         public async Task<int> UpdateAsync(Employees employee)

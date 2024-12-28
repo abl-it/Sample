@@ -7,7 +7,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a asp-action="Index">Employees</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
     </ol>
 </nav>
 
@@ -15,14 +15,8 @@
 
 
 
-<form asp-action="Edit" method="post" class="mt-4">
-    <input type="hidden" asp-for="EmployeeID" />
-
-    <div class="mb-3">
-        <label asp-for="EmployeeID" class="form-label">Employee ID</label>
-        <input asp-for="EmployeeID" class="form-control" readonly />
-        <span asp-validation-for="EmployeeID" class="text-danger"></span>
-    </div>
+<form asp-action="Create" method="post" class="mt-4">
+    
     <div class="mb-3">
         <label asp-for="FirstName" class="form-label">First Name</label>
         <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
@@ -101,4 +95,3 @@
     <button type="submit" class="btn btn-primary">Save Changes</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
-
